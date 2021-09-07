@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Tournament</title>
+</head>
+<body>
+<div style="text-align: center;">
+    <h1>Welcome to Chess </h1>
+
+    <div style="margin: 20px 20px;margin-bottom: 50px;">
+        <a href="/" th:href="@{/tournament}">Tournament</a>
+    </div>
+
+    <div style="margin: 20px 20px;margin-bottom: 50px;">
+        <a href="/" th:href="@{/logOut}"> Log Out </a>
+    </div>
+
+    <div style="margin: 20px 20px">
+        All Users
+    </div>
+
+    <form th:action="@{/matchChess}" method=post>
+        <div style="justify-content: center">
+
+            <div style="display: flex;justify-content: center;margin:50px">
+                <p>Enter Your id:</p>
+                <input type="text" name="firstPlayer"/>
+            </div>
+
+            <div style="display: flex;justify-content: center;margin:50px">
+                <p>Enter Second player id:</p>
+                <input type="text" name="secondPlayer"/>
+            </div>
+
+            <input type="submit" value="Play two player Chess">
+        </div>
+    </form>
+
+    <div style="margin: 20px 20px">
+        <table>
+
+            <tr>
+                <td>User ID</td>
+                <td>User Name</td>
+            </tr>
+
+            <tr th:each="element : ${allUsers}">
+                <td th:text="${element.userId}">[[${element.userId}]]</td>
+                <td th:text="${element.username}">[[${element.username}]]</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

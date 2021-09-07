@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Tournament Chess</title>
+</head>
+<body>
+
+<form th:action="@{/viewLeaderboard}" method=post>
+    <div style="display: flex;justify-content: center;margin:50px">
+
+        <div style="display: flex;justify-content: center;margin:50px">
+            <p>Enter Your tournament id:</p>
+            <input type="text" name="tournamentId"/>
+        </div>
+
+        <input type="submit" value="Get Leaderboard">
+    </div>
+</form>
+
+<div style="display: flex;justify-content: center;margin:50px">
+    All Players
+</div>
+
+<div style="display: flex;justify-content: center;margin:50px">
+    <table>
+
+        <tr>
+            <td>Player ID</td>
+            <td>Player Points</td>
+        </tr>
+
+        <tr th:each="element : ${players}">
+            <td th:text="${element.playerName}">[[${element.playerName}]]</td>
+            <td th:text="${element.playerPoints}">[[${element.playerPoints}]]</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

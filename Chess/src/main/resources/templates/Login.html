@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Login</title>
+    <style>
+        .text-red {
+            color: #f64e60;
+        }
+    </style>
+</head>
+
+<body>
+<div style="text-align:center"><h1>User Login </h1></div>
+<br>
+<form th:action="@{/loginForm}" method=post>
+    <table align="center">
+        <tr>
+            <td>UserId</td>
+            <td><input type="text" name="userId"/></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="password"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit" name="loginFormSubmit">Login</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <div th:if="${message != null}">
+                    <p class="text-red"> [[${message}]] </p>
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
+<div style="text-align: center">
+    <a href="/" th:href="@{/registerPage}">Sign Up</a><br><br>
+</div>
+
+</body>
+</html>

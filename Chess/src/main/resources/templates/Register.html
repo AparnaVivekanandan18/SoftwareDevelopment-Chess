@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Login</title>
+    <style>
+        .text-red {
+            color: #f64e60;
+        }
+    </style>
+</head>
+
+<body>
+<div style="text-align:center"><h1> User Registration </h1></div>
+<br>
+<form th:action="@{/registerForm}" method=post>
+    <table align="center">
+        <tr>
+            <td>Email</td>
+            <td><input type="email" name="email"/></td>
+        </tr>
+        <tr>
+            <td>UserName</td>
+            <td><input type="text" name="username"/></td>
+        </tr>
+        <tr>
+            <td>UserId</td>
+            <td><input type="text" name="userId"/></td>
+        </tr>
+        <tr>
+            <td>Difficulty</td>
+            <td colspan="4">
+                <input type="radio" id="Beginner" name="level" value=3>
+                <label for="Beginner">Beginner</label>
+
+                <input type="radio" id="Intermediate" name="level" value=2>
+                <label for="Intermediate">Intermediate</label>
+
+                <input type="radio" id="Expert" name="level" value=1>
+                <label for="Expert">Expert</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="password"/></td>
+        </tr>
+        <tr>
+            <td>Confirm Password</td>
+            <td><input type="password" name="conpassword"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit" name="RegisterFormSubmit">Register</button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div th:if="${Registeration_Message != null}">
+                    <p class="text-red"> [[${Registeration_Message}]] </p>
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div style="text-align: center">
+    <a href="/" th:href="@{/loginPage}">Login</a><br><br>
+
+</div>
+</body>
+</html>
